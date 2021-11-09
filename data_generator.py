@@ -1,8 +1,9 @@
-import requests
+"Get fake data from namefake api to generate a csv file for testing purposes."
 import random
 import time
 import sys
 import csv
+import requests
 
 DATA_LEN = 300
 
@@ -19,7 +20,7 @@ if __name__ == '__main__':
                     fake_data['name'],
                     fake_data['phone_w'])
             fakes.append(data)
-            time.sleep(3)
+            time.sleep(5)
             print(data)
         else:
             print("Oops, something wrong with namefake api.")
