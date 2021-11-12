@@ -19,21 +19,18 @@ def generate_pdf_without_saving_images(people_data, file_name):
     images = []
     m_pixels = months_pixels_coords()
     for data in people_data:
-        try:
-            person_id, name, phone = data
-            for i in range(13):
-                with Image.open('envelope_template.png') as png_image:
-                    pencil = ImageDraw.Draw(png_image)
-                    pencil.text((190, 630), fill="#000", font=font, text=name)
-                    pencil.text((190, 760), fill="#000", font=font, text=phone)
-                    pencil.text((480, 880), fill="#000", font=font, text=person_id)
-                    pencil.text((1220, 880), fill="#000", font=font, text="2021")
-                    pencil.text(m_pixels[i], fill="#000", font=font, text="X")
-                    tmp = BytesIO()
-                    png_image.save(tmp, format='png')
-                    images.append(tmp)
-        except OSError:
-            print("Error -- Error while writing image.")
+        person_id, name, phone = data
+        for i in range(13):
+            with Image.open('envelope_template.png') as png_image:
+                pencil = ImageDraw.Draw(png_image)
+                pencil.text((190, 630), fill="#000", font=font, text=name)
+                pencil.text((190, 760), fill="#000", font=font, text=phone)
+                pencil.text((480, 880), fill="#000", font=font, text=person_id)
+                pencil.text((1220, 880), fill="#000", font=font, text="2021")
+                pencil.text(m_pixels[i], fill="#000", font=font, text="X")
+                tmp = BytesIO()
+                png_image.save(tmp, format='png')
+                images.append(tmp)
     images = [Image.open(img).convert('RGB') for img in images]
     first_image = images.pop(0)
     first_image.save(file_name)
