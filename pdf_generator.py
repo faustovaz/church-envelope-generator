@@ -11,7 +11,7 @@ def load_data(file):
 
 def months_pixels_coords():
     "Generates the pixels coordinates for the months table."
-    return [(175 + (i * 130), 1180) for i in range(13)]
+    return [(180 + (i * 130), 1180) for i in range(13)]
 
 def generate_pdf_without_saving_images(people_data, file_name):
     "Generates the pdf file with the envelope images fill with people data."
