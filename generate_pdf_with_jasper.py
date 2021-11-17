@@ -30,7 +30,7 @@ config = {
 
 if __name__ == '__main__':
     report = pyreportjasper.PyReportJasper()
-    report.config('dizimistas.jasper',
+    report.config('envelope_template.jasper',
                     'envelopes_with_jasper.pdf',
                     output_formats=['pdf'],
                     db_connection=config)
